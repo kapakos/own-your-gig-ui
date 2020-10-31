@@ -6,9 +6,6 @@
 <h2>Stories</h2>
 <div>
   {#each stories as story}
-    <div></div>
-  {/each}
-  {#each stories as story}
     <Story story={story}/>
   {/each}
 </div>
