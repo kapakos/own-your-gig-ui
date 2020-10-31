@@ -7,7 +7,6 @@
   export let users;
   export let tasks;
 </script>
-
 <div class="dashboard">
   <Card>
     <Stories stories={stories} />
@@ -19,7 +18,6 @@
     <Tasks tasks={tasks} />
   </Card>
 </div>
-
 <style type="text/css">
   .dashboard {
     display: flex;

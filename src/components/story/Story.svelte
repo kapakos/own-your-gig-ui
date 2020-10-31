@@ -11,6 +11,7 @@
     updated_at, 
     description 
   } = story;
+  const created = new Date(created_at).toDateString();
 </script>
 
 <div class='stories__story'>
@@ -19,7 +20,7 @@
   <div>{pr_status}</div>
   <div>{story_ticket_url}</div>
   <div>{documentation_url}</div>
-  <div>{created_at}</div>
+  <div>{created}</div>
   <div>{story_status}</div>
   <div>{updated_at}</div>
   <div>{description}</div>

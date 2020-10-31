@@ -1,4 +1,5 @@
 <script>
+  import Task from './Task.svelte';
   export let tasks;
 </script>
 
