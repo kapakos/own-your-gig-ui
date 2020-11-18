@@ -9,7 +9,9 @@
       const users = await userRes.json();
       const tasks = await taskRes.json();
 
-      return { stories, users, tasks }
+      const authUrl = session.AUTH_URL;
+      const authenticated = false;
+      return { stories, users, tasks, authenticated, authUrl }
     } catch(err){
       console.log(err)
     }
@@ -20,7 +22,10 @@
   export let stories;
   export let users;
   export let tasks;
+  export let authenticated;
+  export let authUrl;
   import Dashboard from '../components/container/Dashboard.svelte';
+  import Auth from '../components/auth/Auth.svelte';
 </script>
 
 <svelte:head>
@@ -28,8 +33,10 @@
 </svelte:head>
 
 <h1>Own your gig!</h1>
-{#if (stories && users && tasks)}
-<Dashboard  stories={stories} users={users} tasks={tasks} />
+{#if !authenticated}
+  <Auth authUrl={authUrl}/>
+{:else if (stories && users && tasks && authenticated)}
+  <Dashboard  stories={stories} users={users} tasks={tasks} />
 {:else}
   <p>...Loading</p>
 {/if}
